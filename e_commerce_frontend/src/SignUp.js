@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './SignUp.css';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle signup logic here
+    if (password !== confirmPassword) {
+      alert("Passwords don't match");
+      return;
+    }
+    try {
+      await axios.post('http://localhost:8080/api/auth/signup', { email, password });
+      navigate('/login');
+    } catch (error) {
+      console.error('Sign up failed:', error.response?.data || error.message);
+    }
   };
 
   return (
@@ -43,7 +54,7 @@ const SignUp = () => {
         <button type="submit">Sign Up</button>
       </form>
       <p className="login-link">
-        Already have an account? <Link to="/login">Login here</Link>
+        Already have an account? <a href="/login">Login here</a>
       </p>
     </div>
   );

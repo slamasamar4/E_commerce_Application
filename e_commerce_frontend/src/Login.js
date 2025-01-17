@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
+    try {
+      const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
+      // Handle successful login (e.g., save token in localStorage)
+      localStorage.setItem('token', response.data.token);
+      navigate('/productpage');
+    } catch (error) {
+      console.error('Login failed:', error.response?.data || error.message);
+    }
   };
 
   return (
