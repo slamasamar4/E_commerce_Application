@@ -1,8 +1,22 @@
+.product_page {
+  max-width: 1000px; /* Set a max width for the page */
+  margin: 0 auto; /* Center the page */
+  padding: 20px; /* Add some padding */
+}
+.product_title{
+  color :#45a049;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  
+}
 
 .product-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center; /* Center the product list */
+
   }
   
   .product-item {
@@ -12,10 +26,12 @@
     text-align: center;
     background-color: #dfdfa0;
     color:#ffffff;
+    font-size: 18px;
   }
 
+  
   .product-item img {
-    width: 150px; /* Set the desired width */
+    width: 200px; /* Set the desired width */
     height: auto; /* Maintain aspect ratio */
   }
 

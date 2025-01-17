@@ -19,8 +19,11 @@ const ProductPage = () => {
   };
 
   return (
-    <div>
-      <h2>Products</h2>
+    <div className="product_page">
+    <div className="product_title">
+      <h2>Special SALE UP to 60% OFF!</h2>
+      <h3>Hurry up and get your favorite products</h3>
+    
       <div className="product-list">
         {products.map((product) => (
           <div key={product.id} className="product-item">
@@ -30,12 +33,14 @@ const ProductPage = () => {
           </div>
         ))}
       </div>
-      <h2>Your List</h2>
+      <h2>Pick your favorites items ! </h2>
+      <h3>Shopping List </h3>
       <ul>
         {cart.map((item, index) => (
           <li key={index}>{item.name}</li>
         ))}
       </ul>
+    </div>
     </div>
   );
 };

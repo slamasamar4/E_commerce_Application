@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './SignUp.css';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -11,10 +13,10 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label>Email:</label>
           <input
             type="email"
@@ -22,7 +24,7 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Password:</label>
           <input
             type="password"
@@ -30,7 +32,7 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Confirm Password:</label>
           <input
             type="password"
@@ -40,6 +42,9 @@ const SignUp = () => {
         </div>
         <button type="submit">Sign Up</button>
       </form>
+      <p className="login-link">
+        Already have an account? <Link to="/login">Login here</Link>
+      </p>
     </div>
   );
 };
