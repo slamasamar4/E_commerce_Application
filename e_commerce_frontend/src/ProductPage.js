@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import './ProductPage.css';
 
 const products = [
-  { id: 1, name: 'Product 1', image: 'path/to/image1.jpg' },
-  { id: 2, name: 'Product 2', image: 'path/to/image2.jpg' },
-  { id: 3, name: 'Product 3', image: 'path/to/image3.jpg' },
+  { id: 1, name: ' Body Scrub', image: require('./assets/scrub.jpg') },
+  { id: 2, name: 'exfoliating_selicone', image: require('./assets/exfoliating_selicone.jpg') },
+  { id: 3, name: 'givenchy perfume', image: require('./assets/givenchy.jpg') },
+  { id: 4, name: 'johnson shower gel', image: require('./assets/johnson.jpg') },
+  { id: 5, name: 'pink_vaseline', image: require('./assets/pink_vaseline.jpg') },
+  { id: 6, name: 'hair serum', image: require('./assets/serum.jpg') },
+
 ];
 
 const ProductPage = () => {
